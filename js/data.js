@@ -4,12 +4,13 @@ class Data {
 
     loadData = async function () {
         const url = "https://api.sampleapis.com/recipes/recipes";
-        let data
+        let data;
         try {
             const respons = await fetch(url);
             data = await respons.json();
         } catch (e) {
-            throw new Error(e);
+            data = [];
+            console.log("error", e);
         }
         return data;
     }
